@@ -10,6 +10,10 @@ RSpec.describe "Nanomaterial notifications", type: :feature do
     visit "/responsible_persons/#{responsible_person.id}/nanomaterials"
   end
 
+  scenario "CSV download link" do
+    expect(page).to have_selector("a", text: "Download a CSV file of notified nanomaterials")
+  end
+
   scenario "submitting a nanomaterial that has not been notified to the EU", :with_stubbed_antivirus do
     click_link "Add a nanomaterial"
 
